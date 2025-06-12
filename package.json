@@ -1,14 +1,19 @@
 {
 	"name": "vmode",
 	"version": "1.0.0",
+	"description": "vmode sneakers store",
 	"private": true,
+	"scripts": {
+		"install:all": "npm install && cd server-side && npm install && cd ../frontend-side && npm install && cd ..",
+		"start:server": "cd server-side && npm run start:dev",
+		"start:frontend": "cd frontend-side && npm start",
+		"dev": "npm run start:server & npm run start:frontend",
+		"build:server": "cd server-side && npm run build",
+		"build:frontend": "cd frontend-side && npm run build",
+		"build:all": "npm run build:server && npm run build:frontend"
+	},
 	"workspaces": [
 		"server-side",
 		"frontend-side"
-	],
-	"scripts": {
-		"start:backend": "npm --workspace=server-side start:dev",
-		"start:frontend": "npm --workspace=frontend-side dev",
-		"start:all": "npm run start:backend & npm run start:frontend"
-	}
+	]
 }
