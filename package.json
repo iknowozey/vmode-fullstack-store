@@ -1,0 +1,14 @@
+{
+	"name": "vmode",
+	"version": "1.0.0",
+	"private": true,
+	"workspaces": [
+		"server-side",
+		"frontend-side"
+	],
+	"scripts": {
+		"start:backend": "npm --workspace=server-side start:dev",
+		"start:frontend": "npm --workspace=frontend-side dev",
+		"start:all": "npm run start:backend & npm run start:frontend"
+	}
+}
