@@ -11,7 +11,7 @@ datasource db {
 model User {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @map("updated_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   email    String  @unique
   password String?
@@ -29,7 +29,7 @@ model User {
 model Product {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @map("updated_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   title       String
   description String
@@ -57,7 +57,7 @@ model Product {
 model Size {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @map("updated_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   sizesEurope  Int[]
   sizesRussian Int[]
@@ -70,7 +70,7 @@ model Size {
 model Category {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @map("updated_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   products Product[]
 
@@ -80,7 +80,7 @@ model Category {
 model Color {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @map("updated_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   name  String
   value String
@@ -93,7 +93,7 @@ model Color {
 model Review {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @map("updated_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   text   String
   rating Int
@@ -109,7 +109,7 @@ model Review {
 model Order {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @map("updated_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   status EnumOrderStatus @default(PENDING)
 
@@ -125,7 +125,7 @@ model Order {
 model OrderItem {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @map("updated_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   quantity Int
   price    Int
