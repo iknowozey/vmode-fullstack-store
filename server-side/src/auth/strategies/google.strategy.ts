@@ -6,10 +6,20 @@ import { Profile, Strategy, VerifyCallback } from 'passport-google-oauth20'
 @Injectable()
 export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
 	constructor(private configService: ConfigService) {
+		const clientID = configService.get<string>('GOOGLE_CLIENT_ID')
+		const clientSecret = configService.get<string>('GOOGLE_CLIENT_SECRET')
+		const serverUrl = configService.get<string>('SERVER_URL')
+
+		if (!clientID || !clientSecret || !serverUrl) {
+			throw new Error(
+				'Не настроены переменные окружения GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET или SERVER_URL.'
+			)
+		}
+
 		super({
-			clientID: configService.get('GOOGLE_CLIENT_ID'),
-			clientSecret: configService.get('GOOGLE_CLIENT_SECRET'),
-			callbackURL: configService.get('SERVER_URL') + '/auth/google/callback',
+			clientID: clientID,
+			clientSecret: clientSecret,
+			callbackURL: serverUrl + '/auth/google/callback',
 			scope: ['profile', 'email']
 		})
 	}
@@ -20,12 +30,15 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
 		profile: Profile,
 		done: VerifyCallback
 	) {
-		const { displayName, email, photos } = profile
+		const { displayName, emails, photos } = profile
+
+		const email = emails && emails.length > 0 ? emails[0].value : undefined
+		const picture = photos && photos.length > 0 ? photos[0].value : undefined
 
 		const user = {
-			email: emails[0].value,
+			email: email,
 			name: displayName,
-			picture: photos[0].value
+			picture: picture
 		}
 
 		done(null, user)

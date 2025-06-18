@@ -6,10 +6,20 @@ import { Profile, Strategy } from 'passport-yandex'
 @Injectable()
 export class YandexStrategy extends PassportStrategy(Strategy, 'yandex') {
 	constructor(private configService: ConfigService) {
+		const clientID = configService.get<string>('YANDEX_CLIENT_ID')
+		const clientSecret = configService.get<string>('YANDEX_CLIENT_SECRET')
+		const serverUrl = configService.get<string>('SERVER_URL')
+
+		if (!clientID || !clientSecret || !serverUrl) {
+			throw new Error(
+				'Не настроены переменные окружения YANDEX_CLIENT_ID, YANDEX_CLIENT_SECRET или SERVER_URL.'
+			)
+		}
+
 		super({
-			clientID: configService.get('YANDEX_CLIENT_ID'),
-			clientSecret: configService.get('YANDEX_CLIENT_SECRET'),
-			callbackURL: configService.get('SERVER_URL') + '/auth/yandex/callback'
+			clientID: clientID,
+			clientSecret: clientSecret,
+			callbackURL: serverUrl + '/auth/yandex/callback'
 		})
 	}
 
@@ -19,12 +29,15 @@ export class YandexStrategy extends PassportStrategy(Strategy, 'yandex') {
 		profile: Profile,
 		done: any
 	) {
-		const { userName, email, photos } = profile
+		const { userName, emails, photos } = profile
+
+		const email = emails && emails.length > 0 ? emails[0].value : undefined
+		const picture = photos && photos.length > 0 ? photos[0].value : undefined
 
 		const user = {
-			email: emails[0].value,
+			email: email,
 			name: userName,
-			picture: photos[0].value
+			picture: picture
 		}
 
 		done(null, user)
