@@ -13,6 +13,7 @@ export class UserService {
 				id
 			},
 			include: {
+				stores: true,
 				favorites: true,
 				orders: true
 			}
@@ -27,12 +28,34 @@ export class UserService {
 				email
 			},
 			include: {
+				stores: true,
 				favorites: true,
 				orders: true
 			}
 		})
 
 		return user
+	}
+
+	async toggleFavorites(productId: string, userId: string) {
+		const user = await this.getById(userId)
+
+		const isExists = user?.favorites.some(product => product.id === productId)
+
+		await this.prisma.user.update({
+			where: {
+				id: user?.id
+			},
+			data: {
+				favorites: {
+					[isExists ? 'disconnect' : 'connect']: {
+						id: productId
+					}
+				}
+			}
+		})
+
+		return true
 	}
 
 	async create(dto: AuthDto) {
