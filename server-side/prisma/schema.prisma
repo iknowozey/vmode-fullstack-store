@@ -22,7 +22,7 @@ model User {
   reviews   Review[]
   favorites Product[]
   orders    Order[]
-  store     Store[]
+  stores    Store[]
 
   @@map("user")
 }

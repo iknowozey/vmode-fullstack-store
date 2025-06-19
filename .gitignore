@@ -1,5 +1,7 @@
 # dependencies
 node_modules/
+.vscode/
+dist/
 server-side/node_modules/
 frontend-side/node_modules/
 /node_modules
@@ -14,7 +16,7 @@ frontend-side/node_modules/
 # testing
 /coverage
 
-# next.js
+# next.jsё
 /.next/
 /out/
 

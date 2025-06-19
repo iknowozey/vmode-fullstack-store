@@ -100,10 +100,15 @@ export class AuthService {
 					picture: req.user.picture
 				},
 				include: {
+					stores: true,
 					favorites: true,
 					orders: true
 				}
 			})
+
+			if (!user) {
+				throw new Error('Не удалось создать пользователя.')
+			}
 		}
 
 		const tokens = this.issueTokens(user.id)
