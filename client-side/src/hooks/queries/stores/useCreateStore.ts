@@ -2,11 +2,8 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { useMemo } from 'react'
 import toast from 'react-hot-toast'
-
 import { STORE_URL } from '@/config/url.config'
-
 import { storeService } from '@/services/store.service'
-
 import { IStoreCreate } from '@/shared/types/store.interface'
 
 export function useCreateStore() {
@@ -21,7 +18,12 @@ export function useCreateStore() {
 			queryClient.invalidateQueries({
 				queryKey: ['profile']
 			})
-			toast.success('Магазин создан')
+			toast.success('Ваш магазин создан', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 			router.push(STORE_URL.home(store.id))
 		},
 		onError() {
