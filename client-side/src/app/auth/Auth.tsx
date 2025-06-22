@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/Button'
 import {
 	Card,
 	CardContent,
@@ -10,7 +10,7 @@ import {
 	CardFooter,
 	CardHeader,
 	CardTitle
-} from '@/components/ui/card'
+} from '@/components/ui/Card'
 import { Form } from '@/components/ui/form-elements/Form'
 import { AuthFields } from './AuthFields'
 import { Social } from './Social'
@@ -27,8 +27,8 @@ export function Auth() {
 				<Image
 					src='/images/auth.svg'
 					alt='vmode auth'
-					width={100}
-					height={100}
+					width={500}
+					height={500}
 				/>
 			</div>
 			<div className='h-full flex flex-col items-center justify-center'>
