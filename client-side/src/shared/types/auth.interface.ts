@@ -1,3 +1,5 @@
+import { IUser } from './user.interface'
+
 export interface IAuthForm {
 	name: string
 	email: string
@@ -8,5 +10,3 @@ export interface IAuthResponse {
 	user: IUser
 	accessToken: string
 }
-
-
