@@ -1,7 +1,7 @@
 {
 	"name": "vmode",
 	"version": "1.0.0",
-	"description": "vmode sneakers store",
+	"description": "vmode store",
 	"private": true,
 	"scripts": {
 		"install:all": "npm install && cd server-side && npm install && cd ../frontend-side && npm install && cd ..",

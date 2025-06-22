@@ -3,9 +3,9 @@ import { SERVER_URL } from '@/config/api.config'
 import {
 	getAccessToken,
 	removeFromStorage
-} from 
-import { errorCatch, getContentType } from './api.hepler'
+} from '@/services/auth/auth-token.service'
 import { authService } from '@/services/auth/auth.service'
+import { errorCatch, getContentType } from './api.hepler'
 
 const options: CreateAxiosDefaults = {
 	baseURL: SERVER_URL,
