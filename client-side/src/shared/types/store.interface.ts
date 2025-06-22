@@ -4,6 +4,9 @@ export interface IStore {
 	description: string
 }
 
-export interface IStoreCreate extends Pick<IStore, 'title'> {}
+export interface IStoreCreate {
+	title: string
+	description: string // <-- ДОБАВЬТЕ ЭТУ СТРОКУ
+}
 
 export interface IStoreEdit extends Omit<IStore, 'id'> {}

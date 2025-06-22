@@ -16,9 +16,9 @@ export function MenuItem({ route }: MenuItemProps) {
 		<Link
 			href={route.link}
 			className={cn(
-				'flex items-center gap-x-3 text-slate-600 text-sm font-medium py-2.5 px-3 rounded-lg hover:bg-blue-200/20 hover:text-foreground-500 hover:drop-shadow-sm bg-transparent transition-all duration-200',
+				'flex items-center gap-x-3 text-foreground/40 text-sm font-medium py-2.5 px-3 rounded-lg hover:bg-foreground/10 hover:text-foreground-500 hover:drop-shadow-sm bg-transparent transition-all duration-200',
 				{
-					['text-sm text-foreground-500 bg-blue-200/20']:
+					['text-sm text-foreground-500 bg-foreground/10 ']:
 						pathname === route.link
 				}
 			)}

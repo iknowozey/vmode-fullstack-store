@@ -6,6 +6,7 @@ import { Loader } from '@/components/ui/Loader'
 import { ToggleTheme } from '@/components/ui/ToggleTheme'
 import { DASHBOARD_URL } from '@/config/url.config'
 import { useProfile } from '@/hooks/useProfile'
+import { StoreSwitcher } from './StoreSwitcher'
 
 export function Header() {
 	const { user, isLoading } = useProfile()
@@ -19,6 +20,7 @@ export function Header() {
 				) : (
 					user && (
 						<>
+							<StoreSwitcher items={user.stores} />
 							<Link href={DASHBOARD_URL.home()}>
 								<Image
 									className='rounded-full'
