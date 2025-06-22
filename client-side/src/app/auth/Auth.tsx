@@ -1,5 +1,6 @@
 'use client'
 
+import { useTheme } from 'next-themes'
 import Image from 'next/image'
 import { useState } from 'react'
 import { Button } from '@/components/ui/Button'
@@ -21,11 +22,16 @@ export function Auth() {
 
 	const { onSubmit, form, isPending } = useAuthForm(isReg)
 
+	const { theme } = useTheme()
+
+	const imageSrc =
+		theme === 'dark' ? '/images/auth-dark.svg' : '/images/auth.svg'
+
 	return (
 		<div className='min-h-screen grid grid-cols-1 lg:grid-cols-2'>
 			<div className='h-full bg-foreground hidden lg:flex items-center justify-center'>
 				<Image
-					src='/images/auth.svg'
+					src={imageSrc}
 					alt='vmode auth'
 					width={500}
 					height={500}
@@ -66,7 +72,7 @@ export function Auth() {
 					<CardFooter className='p-0 mt-4 text-sm text-muted-foreground'>
 						{isReg ? 'Уже есть аккаунт?' : 'Еще нет аккаунта?'}
 						<button
-							className='ml-1 text-sky-600 cursor-pointer'
+							className='ml-1 text-foreground cursor-pointer'
 							onClick={() => setIsReg(!isReg)}
 						>
 							{isReg ? 'Войти' : 'Создать'}

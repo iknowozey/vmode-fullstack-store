@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
+import { ThemeProvider } from '@/components/ui/ThemeProvider'
 import { SITE_DESCRIPTION, SITE_NAME } from '@/constants/seo.constants'
 import './globals.css'
 import { Providers } from './providers'
@@ -24,9 +25,16 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang='ru'>
+		<html lang='ru' suppressHydrationWarning>
 			<body className={`${montserrat.variable} antialiased`}>
-				<Providers>{children}</Providers>
+				<ThemeProvider
+					attribute='class'
+					defaultTheme='system'
+					enableSystem
+					disableTransitionOnChange
+				>
+					<Providers>{children}</Providers>
+				</ThemeProvider>
 			</body>
 		</html>
 	)

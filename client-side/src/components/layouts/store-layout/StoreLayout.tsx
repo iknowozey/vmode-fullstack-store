@@ -12,7 +12,7 @@ export function StoreLayout({ children }: PropsWithChildren<unknown>) {
 				<div className='h-[70px] lg:pl-64 fixed inset-y-0 w-full z-[49]'>
 					<Header />
 				</div>
-				<main className='lg:pl-64 py-[70px] bg-white'>{children}</main>
+				<main className='lg:pl-64 py-[70px] bg-background'>{children}</main>
 			</div>
 		</div>
 	)
