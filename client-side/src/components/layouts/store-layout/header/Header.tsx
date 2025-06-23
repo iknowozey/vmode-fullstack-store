@@ -14,13 +14,13 @@ export function Header() {
 	return (
 		<div className='p-5 gap-x-4 h-full flex items-center bg-background border-b'>
 			<div className='flex items-center gap-x-4 ml-auto'>
-				<ToggleTheme />
 				{isLoading ? (
 					<Loader />
 				) : (
 					user && (
 						<>
 							<StoreSwitcher items={user.stores} />
+							<ToggleTheme />
 							<Link href={DASHBOARD_URL.home()}>
 								<Image
 									className='rounded-full'
