@@ -27,7 +27,12 @@ export function useCreateStore() {
 			router.push(STORE_URL.home(store.id))
 		},
 		onError() {
-			toast.error('Ошибка при создании магазина')
+			toast.error('Ошибка при создании магазина', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 		}
 	})
 
