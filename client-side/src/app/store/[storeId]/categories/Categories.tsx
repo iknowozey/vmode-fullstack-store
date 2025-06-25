@@ -8,23 +8,21 @@ import { Heading } from '@/components/ui/Heading'
 import { DataTable } from '@/components/ui/data-table/DataTable'
 import DataTableLoading from '@/components/ui/data-table/DataTableLoading'
 import { STORE_URL } from '@/config/url.config'
-import { useGetProducts } from '@/hooks/queries/products/useGetProducts'
-import { IProductColumn, productColumns } from './ProductColumns'
-import { formatPrice } from '@/lib/string/format-price'
+import { useGetCategories } from '@/hooks/queries/categories/useGetCategories'
+import { ICategoryColumn, categoryColumns } from './CategoryColumns'
+import { formatDate } from '@/lib/date/format-date'
 
-export function Products() {
+export function Categories() {
 	const params = useParams<{ storeId: string }>()
 
-	const { products, isLoading } = useGetProducts()
+	const { categories, isLoading } = useGetCategories()
 
-	const formattedProducts: IProductColumn[] = products
-		? products.map(product => ({
-				id: product.id,
-				title: product.title,
-				price: formatPrice(product.price),
-				category: product.category.title,
-				color: product.color.value,
-				storeId: product.storeId
+	const formattedCategories: ICategoryColumn[] = categories
+		? categories.map(category => ({
+				id: category.id,
+				createdAt: formatDate(category.createdAt),
+				title: category.title,
+				storeId: category.storeId
 			}))
 		: []
 
@@ -36,11 +34,11 @@ export function Products() {
 				<>
 					<div className='flex items-center justify-between'>
 						<Heading
-							title={`Товары (${products?.length})`}
-							description='Все товары вашего магазина'
+							title={`Категории (${categories?.length})`}
+							description='Все категории вашего магазина'
 						/>
 						<div>
-							<Link href={STORE_URL.productCreate(params.storeId)}>
+							<Link href={STORE_URL.categoryCreate(params.storeId)}>
 								<Button variant='default'>
 									<Plus size={16} className='mr-2' />
 									Создать
@@ -50,8 +48,8 @@ export function Products() {
 					</div>
 					<div className='mt-3'>
 						<DataTable
-							columns={productColumns}
-							data={formattedProducts}
+							columns={categoryColumns}
+							data={formattedCategories}
 							filterKey='title'
 						/>
 					</div>
