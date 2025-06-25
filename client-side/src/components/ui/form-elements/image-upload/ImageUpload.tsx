@@ -31,11 +31,11 @@ export function ImageUpload({ isDisabled, onChange, value }: ImageUploadProps) {
 				disabled={isDisabled || isUploading}
 				variant='secondary'
 				onClick={handleButtonClick}
-				className={cn('size-4 mr-2', {
+				className={cn(' px-5 py-5', {
 					'mt-4': value.length
 				})}
 			>
-				<ImagePlus />
+				<ImagePlus className='text-foreground w-4 h-4 mr-2' />
 				Загрузить картинки
 			</Button>
 			<input
