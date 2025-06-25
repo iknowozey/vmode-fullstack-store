@@ -30,12 +30,7 @@ export function Auth() {
 	return (
 		<div className='min-h-screen grid grid-cols-1 lg:grid-cols-2'>
 			<div className='h-full bg-foreground hidden lg:flex items-center justify-center'>
-				<Image
-					src={imageSrc}
-					alt='vmode auth'
-					width={500}
-					height={500}
-				/>
+				<Image src={imageSrc} alt='vmode auth' width={500} height={500} />
 			</div>
 			<div className='h-full flex flex-col items-center justify-center'>
 				<Card className='border-none p-6 flex flex-col items-center justify-center w-[620px]'>
@@ -44,8 +39,7 @@ export function Auth() {
 							{isReg ? 'Создать аккаунт' : 'Войти в аккаунт'}
 						</CardTitle>
 						<CardDescription>
-							Войдите или создайте учетную запись, чтобы совершать
-							покупки
+							Войдите или создайте учетную запись, чтобы совершать покупки
 						</CardDescription>
 					</CardHeader>
 					<CardContent className='p-0 w-full'>
@@ -54,15 +48,8 @@ export function Auth() {
 								onSubmit={form.handleSubmit(onSubmit)}
 								className='space-y-5'
 							>
-								<AuthFields
-									form={form}
-									isPending={isPending}
-									isReg={isReg}
-								/>
-								<Button
-									className='w-full cursor-pointer'
-									disabled={isPending}
-								>
+								<AuthFields form={form} isPending={isPending} isReg={isReg} />
+								<Button className='w-full cursor-pointer' disabled={isPending}>
 									Продолжить
 								</Button>
 							</form>
