@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { Loader } from '@/components/ui/Loader'
+import { Skeleton } from '@/components/ui/Skeleton'
 import { ToggleTheme } from '@/components/ui/ToggleTheme'
 import { CreateStoreModal } from '@/components/ui/modals/CreateStoreModal'
 import { DASHBOARD_URL, PUBLIC_URL, STORE_URL } from '@/config/url.config'
@@ -21,7 +22,12 @@ export function HeaderMenu() {
 				<Button variant='ghost'>Каталог</Button>
 			</Link>
 			{isLoading ? (
-				<Loader size='default' />
+				<>
+					<div className='flex gap-x-7 items-center'>
+						<Skeleton className='h-8 w-84' />
+						<Loader size='default' />
+					</div>
+				</>
 			) : user ? (
 				<>
 					<Link href={DASHBOARD_URL.favorites()}>
@@ -37,13 +43,12 @@ export function HeaderMenu() {
 						</CreateStoreModal>
 					)}
 					<ToggleTheme />
-
 					<Link href={DASHBOARD_URL.home()}>
 						<Image
 							src={user.picture}
 							alt={user.name}
-							width={42}
-							height={42}
+							width={40}
+							height={40}
 							className='rounded-full'
 						/>
 					</Link>
