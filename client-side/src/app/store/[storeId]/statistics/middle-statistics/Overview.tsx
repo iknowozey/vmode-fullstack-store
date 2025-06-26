@@ -7,7 +7,6 @@ import {
 	ChartTooltipContent
 } from '@/components/ui/Chart'
 import { IMonthlySales } from '@/shared/types/statistics.interface'
-import styles from './MiddleStatistics.module.scss'
 import { formatPrice } from '@/lib/string/format-price'
 
 const chartConfig = {
@@ -24,7 +23,7 @@ interface OverviewProps {
 export function Overview({ data }: OverviewProps) {
 	return (
 		<Card>
-			<CardHeader className={styles.header}>
+			<CardHeader className='flex flex-col items-stretch space-y-0 border-b p-4'>
 				<CardTitle>Прибыль</CardTitle>
 			</CardHeader>
 			<CardContent>
@@ -58,8 +57,8 @@ export function Overview({ data }: OverviewProps) {
 						<Area
 							dataKey='value'
 							type='natural'
-							fill='var(--color-value)'
-							stroke='var(--color-value)'
+							fill='var(--color-foreground)'
+							stroke='var(--color-foreground)'
 						/>
 					</AreaChart>
 				</ChartContainer>

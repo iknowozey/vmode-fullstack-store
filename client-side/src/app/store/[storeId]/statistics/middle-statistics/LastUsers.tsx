@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { ILastUsers } from '@/shared/types/statistics.interface'
-import styles from './MiddleStatistics.module.scss'
 import { formatPrice } from '@/lib/string/format-price'
 
 interface LastUsersProps {
@@ -17,7 +16,7 @@ export function LastUsers({ data }: LastUsersProps) {
 			<CardContent>
 				{data.length ? (
 					data.map(user => (
-						<div className='flex items-center mt-5'>
+						<div className='flex items-center mt-5' key={user.id}>
 							<Image
 								src={user.picture}
 								alt={user.name}
@@ -25,7 +24,7 @@ export function LastUsers({ data }: LastUsersProps) {
 								height={40}
 							/>
 							<div className='ml-4 space-y-1 text-sm text-muted-foreground'>
-								<p className='leading-none text-black font-medium'>
+								<p className='leading-none text-foreground font-medium'>
 									{user.name}
 								</p>
 								<p>{user.email}</p>
