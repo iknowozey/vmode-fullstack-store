@@ -6,7 +6,7 @@ import { SITE_DESCRIPTION } from '@/constants/seo.constants'
 
 export function Hero() {
 	return (
-		<div className='my-24 py-20 mx-auto text-center flex flex-col items-center max-w-4xl space-y-6'>
+		<div className='my-24 py-50 mx-auto text-center flex flex-col items-center max-w-4xl space-y-6'>
 			<h1 className='text-4xl font-bold tracking-tight md:text-5xl'>
 				Здравствуйте!
 			</h1>

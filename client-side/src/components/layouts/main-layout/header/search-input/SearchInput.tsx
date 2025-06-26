@@ -27,7 +27,7 @@ export function SearchInput() {
 					router.push(PUBLIC_URL.explorer(`?searchTerm=${searchTerm}`))
 				}
 			>
-				<Search />
+				<Search size={16} />
 			</Button>
 		</div>
 	)

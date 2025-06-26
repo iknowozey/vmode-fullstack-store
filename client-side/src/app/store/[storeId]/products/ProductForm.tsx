@@ -77,7 +77,7 @@ export function ProductForm({ product, categories, colors }: ProductFormProps) {
 				<Heading title={title} description={description} />
 				{product && (
 					<ConfirmModal handleClick={() => deleteProduct()}>
-						<Button size='icon' variant='primary' disabled={isLoadingDelete}>
+						<Button size='icon' variant='default' disabled={isLoadingDelete}>
 							<Trash className='size-4' />
 						</Button>
 					</ConfirmModal>
