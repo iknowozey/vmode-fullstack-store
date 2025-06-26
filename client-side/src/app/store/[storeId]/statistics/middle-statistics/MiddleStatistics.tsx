@@ -1,3 +1,4 @@
+import { Skeleton } from '@/components/ui/Skeleton'
 import { useGetStatistics } from '@/hooks/queries/statistics/useGetStatistics'
 import { LastUsers } from './LastUsers'
 import { Overview } from './Overview'
@@ -17,9 +18,9 @@ export function MiddleStatistics() {
 					</div>
 				</>
 			) : (
-				<div className='pt-70 flex justify-center text-4xl'>
-					Отсутствуют данные для составления графика
-				</div>
+				<>
+					<Skeleton className='h-102 w-404 rounded-xl' />
+				</>
 			)}
 		</div>
 	)

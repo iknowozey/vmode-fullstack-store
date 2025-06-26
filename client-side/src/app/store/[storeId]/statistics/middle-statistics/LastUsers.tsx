@@ -16,10 +16,11 @@ export function LastUsers({ data }: LastUsersProps) {
 			<CardContent>
 				{data.length ? (
 					data.map(user => (
-						<div className='flex items-center mt-5' key={user.id}>
+						<div className='flex items-center' key={user.id}>
 							<Image
 								src={user.picture}
 								alt={user.name}
+								className='rounded-full'
 								width={40}
 								height={40}
 							/>
