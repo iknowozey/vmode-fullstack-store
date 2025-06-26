@@ -1,3 +1,5 @@
+import { Hero } from './hero/Hero'
+
 export function Home() {
-	return <div>Home</div>
+	return <Hero />
 }

@@ -1,3 +1,4 @@
+import { MainLayout } from '@/components/layouts/main-layout/MainLayout'
 import { ThemeProvider } from '@/components/ui/ThemeProvider'
 
 export default function Layout({
@@ -7,14 +8,16 @@ export default function Layout({
 }>) {
 	return (
 		<div suppressHydrationWarning>
-			<ThemeProvider
-				attribute='class'
-				defaultTheme='system'
-				enableSystem
-				disableTransitionOnChange
-			>
-				{children}
-			</ThemeProvider>
+			<MainLayout>
+				<ThemeProvider
+					attribute='class'
+					defaultTheme='system'
+					enableSystem
+					disableTransitionOnChange
+				>
+					{children}
+				</ThemeProvider>
+			</MainLayout>
 		</div>
 	)
 }
