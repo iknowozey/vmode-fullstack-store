@@ -58,7 +58,7 @@ export function CategoryForm({ category }: ICategoryForm) {
 				{category && (
 					<ConfirmModal handleClick={() => deleteCategory()}>
 						<Button variant='default' disabled={isLoadingDelete}>
-							<Trash className='mr-2' />
+							<Trash size={16} />
 						</Button>
 					</ConfirmModal>
 				)}
