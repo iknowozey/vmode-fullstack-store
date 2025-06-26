@@ -17,10 +17,20 @@ export const useUpdateProduct = () => {
 			queryClient.invalidateQueries({
 				queryKey: ['get products for store dashboard']
 			})
-			toast.success('Товар обновлен')
+			toast.success('Товар обновлен', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 		},
 		onError() {
-			toast.error('Ошибка при обновлении товара')
+			toast.error('Ошибка при обновлении товара', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 		}
 	})
 

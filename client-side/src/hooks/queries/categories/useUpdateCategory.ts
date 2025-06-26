@@ -17,10 +17,20 @@ export const useUpdateCategory = () => {
 			queryClient.invalidateQueries({
 				queryKey: ['get categories for store dashboard']
 			})
-			toast.success('Категория обновлена')
+			toast.success('Категория обновлена', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 		},
 		onError() {
-			toast.error('Ошибка при обновлении категории')
+			toast.error('Ошибка при обновлении категории', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 		}
 	})
 

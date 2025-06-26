@@ -18,10 +18,20 @@ export const useCreateReview = (storeId: string) => {
 			queryClient.invalidateQueries({
 				queryKey: ['product']
 			})
-			toast.success('Отзыв создан')
+			toast.success('Отзыв создан', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 		},
 		onError() {
-			toast.error('Ошибка при создании отзыва')
+			toast.error('Ошибка при создании отзыва', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 		}
 	})
 

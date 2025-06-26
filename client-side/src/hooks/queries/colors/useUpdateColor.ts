@@ -17,10 +17,20 @@ export const useUpdateColor = () => {
 			queryClient.invalidateQueries({
 				queryKey: ['get colors for store dashboard']
 			})
-			toast.success('Цвет обновлён')
+			toast.success('Цвет обновлён', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 		},
 		onError() {
-			toast.error('Ошибка при обновлении цвета')
+			toast.error('Ошибка при обновлении цвета', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 		}
 	})
 

@@ -20,11 +20,21 @@ export const useCreateColor = () => {
 			queryClient.invalidateQueries({
 				queryKey: ['get colors for store dashboard']
 			})
-			toast.success('Цвет создан')
+			toast.success('Цвет создан', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 			router.push(STORE_URL.colors(params.storeId))
 		},
 		onError() {
-			toast.error('Ошибка при создании цвета')
+			toast.error('Ошибка при создании цвета', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 		}
 	})
 

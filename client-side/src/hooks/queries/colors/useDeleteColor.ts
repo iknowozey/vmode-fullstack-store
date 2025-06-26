@@ -18,11 +18,21 @@ export const useDeleteColor = () => {
 			queryClient.invalidateQueries({
 				queryKey: ['get colors for store dashboard']
 			})
-			toast.success('Цвет удалён')
+			toast.success('Цвет удален', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 			router.push(STORE_URL.colors(params.storeId))
 		},
 		onError() {
-			toast.error('Ошибка при удалении цвета')
+			toast.error('Ошибка при удалении цвета', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 		}
 	})
 

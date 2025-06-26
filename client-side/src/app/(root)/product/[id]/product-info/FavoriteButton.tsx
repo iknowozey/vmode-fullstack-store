@@ -31,7 +31,7 @@ export function FavoriteButton({ product }: FavoriteButtonProps) {
 	return (
 		<Button
 			variant='secondary'
-			size='icon'
+			className='px-5 py-5'
 			onClick={() => mutate()}
 			disabled={isPending}
 		>

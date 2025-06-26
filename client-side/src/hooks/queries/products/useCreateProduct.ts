@@ -24,7 +24,12 @@ export const useCreateProduct = () => {
 			router.push(STORE_URL.products(params.storeId))
 		},
 		onError() {
-			toast.error('Ошибка при создании товара')
+			toast.error('Ошибка при создании товара', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 		}
 	})
 

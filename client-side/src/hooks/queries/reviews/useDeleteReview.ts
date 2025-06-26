@@ -13,10 +13,20 @@ export const useDeleteReview = () => {
 			queryClient.invalidateQueries({
 				queryKey: ['product']
 			})
-			toast.success('Отзыв удалён')
+			toast.success('Отзыв удален', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 		},
 		onError() {
-			toast.error('Ошибка при удалении отзыва')
+			toast.error('Ошибка при удалении отзыва', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 		}
 	})
 

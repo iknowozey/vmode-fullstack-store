@@ -18,11 +18,21 @@ export const useDeleteCategory = () => {
 			queryClient.invalidateQueries({
 				queryKey: ['get categories for store dashboard']
 			})
-			toast.success('Категория удалёна')
+			toast.success('Категория удалена', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 			router.push(STORE_URL.categories(params.storeId))
 		},
 		onError() {
-			toast.error('Ошибка при удалении категории')
+			toast.error('Ошибка при удалении категории', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 		}
 	})
 

@@ -22,7 +22,12 @@ export const useDeleteProduct = () => {
 			router.push(STORE_URL.products(params.storeId))
 		},
 		onError() {
-			toast.error('Ошибка при удалении товара')
+			toast.error('Ошибка при удалении товара', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 		}
 	})
 

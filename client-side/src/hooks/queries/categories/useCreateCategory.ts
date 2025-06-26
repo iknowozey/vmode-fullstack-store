@@ -20,11 +20,21 @@ export const useCreateCategory = () => {
 			queryClient.invalidateQueries({
 				queryKey: ['get categories for store dashboard']
 			})
-			toast.success('Категория создана')
+			toast.success('Категория создана', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 			router.push(STORE_URL.categories(params.storeId))
 		},
 		onError() {
-			toast.error('Ошибка при создании категории')
+			toast.error('Ошибка при создании категории', {
+				style: {
+					backgroundColor: 'Background',
+					color: '#999999'
+				}
+			})
 		}
 	})
 
