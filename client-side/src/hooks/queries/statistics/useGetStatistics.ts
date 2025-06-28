@@ -4,17 +4,27 @@ import { useMemo } from 'react'
 import { statisticsService } from '@/services/statistics.service'
 
 export const useGetStatistics = () => {
-	const params = useParams<{ storeId: string }>()
+  const params = useParams<{ storeId: string }>()
 
-	const { data: main } = useQuery({
-		queryKey: ['get main statistics'],
-		queryFn: () => statisticsService.getMain(params.storeId)
-	})
+  const { data: main, isLoading: isMainLoading } = useQuery({
+    queryKey: ['get main statistics'],
+    queryFn: () => statisticsService.getMain(params.storeId),
+    enabled: !!params.storeId, 
+  })
 
-	const { data: middle } = useQuery({
-		queryKey: ['get middle statistics'],
-		queryFn: () => statisticsService.getMiddle(params.storeId)
-	})
 
-	return useMemo(() => ({ main, middle }), [main, middle])
+  const { data: middle, isLoading: isMiddleLoading } = useQuery({
+    queryKey: ['get middle statistics'],
+    queryFn: () => statisticsService.getMiddle(params.storeId),
+    enabled: !!params.storeId,
+  })
+
+
+  const isLoading = isMainLoading || isMiddleLoading;
+
+  return useMemo(() => ({
+    main,
+    middle,
+    isLoading,
+  }), [main, middle, isLoading])
 }

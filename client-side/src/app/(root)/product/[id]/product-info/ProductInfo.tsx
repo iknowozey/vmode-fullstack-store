@@ -18,7 +18,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
 		) || 0
 
 	return (
-		<div className='mt-10 space-y-5 sm:mt-16 lg:mt-0'>
+		<div className='mt-10 space-y-3.5 sm:mt-16 lg:mt-0'>
 			<h1 className='text-3xl font-bold'>{product.title}</h1>
 			<div className='text-2xl;'>{formatPrice(product.price)}</div>
 			<hr />
