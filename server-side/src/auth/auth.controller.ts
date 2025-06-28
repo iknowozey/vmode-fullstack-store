@@ -70,7 +70,7 @@ export class AuthController {
 	}
 
 	@HttpCode(200)
-	@Post('auth/logout')
+	@Post('logout')
 	async logout(@Res({ passthrough: true }) res: Response) {
 		this.authService.RemoveRefreshTokenToResponse(res)
 		return true
