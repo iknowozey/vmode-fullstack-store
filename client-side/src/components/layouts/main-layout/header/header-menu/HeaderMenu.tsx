@@ -15,6 +15,13 @@ import { HeaderCart } from './header-cart/HeaderCart'
 export function HeaderMenu() {
   const { user, isLoading } = useProfile()
 
+    console.log('HeaderMenu - User data:', user);
+  if (user) {
+    console.log('HeaderMenu - User stores:', user.stores);
+    console.log('HeaderMenu - User stores length:', user.stores?.length);
+  }
+
+
   return (
     <div className='hidden items-center gap-x-4 ml-auto lg:flex'>
       <HeaderCart />
@@ -39,7 +46,7 @@ export function HeaderMenu() {
             </Link>
           ) : (
             <CreateStoreModal>
-              <Button variant='ghost' asChild>
+              <Button variant='ghost'>
                 Создать магазин
               </Button>
             </CreateStoreModal>

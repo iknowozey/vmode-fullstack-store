@@ -1,4 +1,5 @@
-import { useMutation } from '@tanstack/react-query'
+// src/app/auth/useAuthForm.ts
+import { useMutation, useQueryClient } from '@tanstack/react-query' // <-- Добавляем useQueryClient
 import { useRouter } from 'next/navigation'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
@@ -8,6 +9,7 @@ import { IAuthForm } from '@/shared/types/auth.interface'
 
 export function useAuthForm(isReg: boolean) {
   const router = useRouter()
+  const queryClient = useQueryClient()
 
   const form = useForm<IAuthForm>({
     defaultValues: {
@@ -30,6 +32,7 @@ export function useAuthForm(isReg: boolean) {
           color: '#999999'
         }
       })
+      queryClient.invalidateQueries({ queryKey: ['profile'] })
       router.replace(DASHBOARD_URL.home())
     },
     onError(error: any) {
