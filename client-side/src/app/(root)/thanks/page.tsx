@@ -23,7 +23,7 @@ export default function ThanksPage() {
 			<Link href={PUBLIC_URL.home()}>
 				<Button variant='default'>
 					На главную
-					<ArrowRight />
+					<ArrowRight size={16} className='ml-2' />
 				</Button>
 			</Link>
 		</div>
