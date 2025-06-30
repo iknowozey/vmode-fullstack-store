@@ -8,7 +8,7 @@ export function Hero() {
 	return (
 		<div className='my-24 py-50 mx-auto text-center flex flex-col items-center max-w-4xl space-y-6'>
 			<h1 className='text-4xl font-bold tracking-tight md:text-5xl'>
-				Здравствуйте!
+				Наш сайт - твои товары
 			</h1>
 			<p className='text-lg text-muted-foreground'>{SITE_DESCRIPTION}</p>
 			<Link href={PUBLIC_URL.explorer()}>
