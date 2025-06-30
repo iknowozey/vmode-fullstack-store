@@ -9,9 +9,7 @@ export async function middleware(request: NextRequest) {
 
 	if (isAuthPage) {
 		if (refreshToken) {
-			return NextResponse.redirect(
-				new URL(PUBLIC_URL.home(), request.url)
-			)
+			return NextResponse.redirect(new URL(PUBLIC_URL.home(), request.url))
 		}
 
 		return NextResponse.next()

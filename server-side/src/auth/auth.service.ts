@@ -130,10 +130,13 @@ export class AuthService {
 	}
 
 	RemoveRefreshTokenToResponse(res: Response) {
-		res.cookie(this.REFRESH_TOKEN_COOKIE_NAME, {
+		const domain = this.configService.get('SERVER_DOMAIN')
+
+		res.cookie(this.REFRESH_TOKEN_COOKIE_NAME, '', {
+			// Устанавливаем значение в пустую строку
 			httpOnly: true,
-			domain: this.configService.get('SERVER_DOMAIN'),
-			expires: new Date(0),
+			domain: domain,
+			expires: new Date(0), // Устанавливаем дату истечения в прошлое
 			secure: true,
 			sameSite: 'none'
 		})
